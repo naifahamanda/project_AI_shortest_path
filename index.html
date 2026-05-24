@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIB Maps | Navigasi AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <div class="brand">
+            <span class="dot-indicator"></span>
+            <h1>UNIB MAPS</h1>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+
+        <div class="search-console" id="search-console">
+            <div class="console-item">
+                <label>TITIK AWAL</label>
+                <select id="start-node"></select>
+            </div>
+            <div class="console-sep"></div>
+            <div class="console-item">
+                <label>DESTINASI</label>
+                <select id="end-node"></select>
+            </div>
+            <div class="console-sep"></div>
+            <div class="console-item">
+                <label>MODE</label>
+                <select id="travel-mode">
+                    <option value="walk">🚶 JALAN</option>
+                    <option value="motor">🏍️ MOTOR</option>
+                    <option value="car">🚗 MOBIL</option>
+                </select>
+            </div>
+            <button id="find-path" class="btn-primary">NAVIGASI</button>
+        </div>
+    </nav>
+
+    <div class="map-switcher">
+        <button id="btn-satelit" class="switcher-btn">🛰️ SATELIT</button>
+        <button id="btn-2d" class="switcher-btn active">🗺️ 2D PETA</button>
+    </div>
+
+    <div class="bottom-overlay">
+        <div class="info-card">
+            <div class="info-header">
+                <div class="info-main">
+                    <span id="res-distance" class="dist-text">0 m</span>
+                    <span class="sep">/</span>
+                    <span id="res-time" class="time-text">0 mnt</span>
+                </div>
+                <div class="ai-badge">A* AI ENGINE</div>
+            </div>
+            <div id="route-steps" class="route-guide">
+                Silakan pilih lokasi asal dan tujuan Anda untuk memulai.
+            </div>
+        </div>
+    </div>
+
+    <main id="map"></main>
+
+    <script src="routes_data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
